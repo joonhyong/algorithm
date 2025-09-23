@@ -1,18 +1,27 @@
+// 백준 2675번 문자열 반복
+/*입력예제
+2
+3 ABC
+5 /HTP
+*/
+/*유도코드
+문자열을 배열로 변환
+각각의 인덱스별로 for문으로 반복된 새로운 문자열을 생성
+각각의 인덱스를 합쳐서 출력
+*/
+
 const fs = require("fs");
-const file = process.platform === "linux" ? "/dev/stdin" : "./exam.txt";
+const file = process.platform === "linux" ? "/dev/stdin" : "../exam.txt";
 const input = fs.readFileSync(file).toString().trim().split("\n");
 
-const T = input[0];
-for (let i = 1; i <= T; i++) {
+const T = Number(input.shift());
+
+for (let i = 0; i < T; i++) {
+  const [n, str] = input.shift().split(" ");
   let answer = "";
-  // 테스트케이스 반복문
-  let [repeat, target] = input[i].split(" "); // 테스트케이스 내의 반복횟수, 반복대상 문자열 할당
-  repeat = Number(repeat); // 반복횟수의 타입을 문자열형=>숫자형으로 변환
-  for (let j = 0; j < target.length; j++) {
-    // 문자열의 요소(문자)들에 접근
-    for (let k = 0; k < repeat; k++) {
-      // 반복횟수만큼
-      answer += target[j]; // 문자열의 요소를 answer에 적재
+  for (let j = 0; j < str.length; j++) {
+    for (let k = 0; k < n; k++) {
+      answer += str[j];
     }
   }
   console.log(answer);
