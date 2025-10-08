@@ -41,7 +41,7 @@ const n = Number(input.shift());
 
 let area = 0; // area 단계를 알려주는 변수
 let cnt = 0; // 정답 변수
-let max = 1; // area 0의 최댓값을 기억해두는 변수
+let max = 1; // area의 최댓값을 기억해두는 변수
 while (1) {
   max += area * 6;
   if (n <= max) {
